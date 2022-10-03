@@ -8,6 +8,9 @@ inputs:
     description: options to pass to pre-commit run
     required: false
     default: '--all-files'
+  debug:
+    description: outputs the config before trying to pull and other extra noisd
+    required: false
 runs:
   using: composite
   steps:
@@ -22,6 +25,10 @@ runs:
   - run: |
         if [ -z "${{ inputs.access_token }}" ]; then
           sed -i 's/https:\/\//https:\/\/x-access-token:${{ inputs.access_token }}@/' .pre-commit-config.yaml
+          cat .pre-commit-config.yaml
+        fi
+        if [ -z "${{ inputs.debug }}" ]; then
+          cat .pre-commit-config.yaml
         fi
     shell: bash
   - run: pre-commit run --show-diff-on-failure --color=always ${{ inputs.extra_args }}
