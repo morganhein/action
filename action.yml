@@ -1,5 +1,5 @@
-name: pre-commit
-description: run pre-commit
+name: pre-commit-private
+description: run pre-commit, with private repo support
 inputs:
   access_token:
     description: token for checking out from private repos
