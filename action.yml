@@ -21,7 +21,7 @@ runs:
       key: pre-commit-3|${{ env.pythonLocation }}|${{ hashFiles('.pre-commit-config.yaml') }}
   - run: |
         if [ -z "${{ inputs.access-token }}" ]; then
-          sed -i 's/https:\/\//https:\/\/x-access-token:${{ inputs.access_token }}/' .pre-commit-config.yaml
+          sed -i 's/https:\/\//https:\/\/x-access-token:${{ inputs.access_token }}@/' .pre-commit-config.yaml
         fi
     shell: bash
   - run: pre-commit run --show-diff-on-failure --color=always ${{ inputs.extra_args }}
