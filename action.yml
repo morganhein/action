@@ -20,7 +20,7 @@ runs:
       path: ~/.cache/pre-commit
       key: pre-commit-3|${{ env.pythonLocation }}|${{ hashFiles('.pre-commit-config.yaml') }}
   - run: |
-        if [ -z "${{ inputs.access-token }}" ]; then
+        if [ -z "${{ inputs.access_token }}" ]; then
           sed -i 's/https:\/\//https:\/\/x-access-token:${{ inputs.access_token }}@/' .pre-commit-config.yaml
         fi
     shell: bash
