@@ -29,7 +29,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - uses: actions/setup-python@v3
-    - uses: pre-commit/action@v3.0.0
+    - uses: morganhein/action@v0.1.0
 ```
 
 This does a few things:
@@ -47,7 +47,7 @@ Here's a sample step configuration that only runs the `flake8` hook against all
 the files (use the template above except for the `pre-commit` action):
 
 ```yaml
-    - uses: pre-commit/action@v3.0.0
+    - uses: morganhein/action@v0.1.0
       with:
         extra_args: flake8 --all-files
 ```
